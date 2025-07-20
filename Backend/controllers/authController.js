@@ -6,7 +6,7 @@ exports.register = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    if (!/@(securely|gmail)\.com$/.test(email)) {
+    if (!/@(securelytix|gmail)\.com$/.test(email)) {
       return res.status(400).json({ msg: "Invalid email domain" });
     }
 

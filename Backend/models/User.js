@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true, 
-    match: [/^[\w.%+-]+@(securely|gmail)\.com$/, 'Only @securely.com or @gmail.com emails allowed']
+    match: [/^[\w.%+-]+@(securelytix|gmail)\.com$/, 'Only @securelytix.com or @gmail.com emails allowed']
   },
   password: {
     type: String,
