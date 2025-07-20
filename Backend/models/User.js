@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const userSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
-    unique: true,
-    match: /^[\w.-]+@securelytix\.com$/ | /^[\w.-]+@gmail\.com$/ | /^[\w.-]+@yahoo\.com$/ | /^[\w.-]+@outlook\.com$/
+    unique: true, 
+    match: [/^[\w.%+-]+@(securely|gmail)\.com$/, 'Only @securely.com or @gmail.com emails allowed']
   },
   password: {
     type: String,
@@ -13,6 +13,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('User', userSchema);
-
-
+module.exports = mongoose.model('User', UserSchema);
