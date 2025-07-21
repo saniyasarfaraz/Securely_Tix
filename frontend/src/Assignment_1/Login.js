@@ -79,7 +79,7 @@ localStorage.setItem("userEmail", res.data.user.email);  // Save email for heade
               checked={remember}
               onChange={() => setRemember(!remember)}
             />
-            <label>Remember me for 7 days</label>
+            <label>Remember me</label>
           </div>
           <button type="submit">Sign In</button>
         </form>
