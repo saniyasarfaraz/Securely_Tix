@@ -3,7 +3,6 @@ import './Dashboard.css';
 import logo from '../securelytixlogo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
-import { faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 
 const API_BASE = 'https://securely-tix.onrender.com/api/data';
@@ -15,7 +14,7 @@ function Dashboard() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [summary, setSummary] = useState({});
   const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
+  // const [userName, setUserName] = useState('');
 
   useEffect(() => {
     fetch(`${API_BASE}/clients`).then(res => res.json()).then(data => setClients(data));
