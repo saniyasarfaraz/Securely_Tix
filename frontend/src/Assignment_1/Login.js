@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import API from "../api";
+// import API from "../api";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import logo from "../securelytixlogo.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -16,15 +17,21 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    console.log(`https://securely-tix.onrender.com/api/auth/login`);
 
     try {
-      const res = await API.post("/auth/login", {
-        email,
-        password,
-        remember,
-      });
+      const res = await axios.post(
+        `https://securely-tix.onrender.com/api/auth/login`,
+        {
+          email,
+          password,
+          remember,
+        }
+      );
 
       localStorage.setItem("token", res.data.token);
+localStorage.setItem("userEmail", res.data.user.email);  // Save email for header
+
       navigate("/dashboard");
     } catch (err) {
       setError(err.response?.data?.msg || "Login failed");
@@ -35,7 +42,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <img src={logo} alt="Securelytix Logo" className="logo" />
-        <h2>Welcome Back</h2>
+        <h2>Welcome to Securelytix</h2>
         <p>Sign in to your account</p>
         {error && <p className="error">{error}</p>}
         <form onSubmit={handleLogin}>
@@ -79,7 +86,7 @@ const Login = () => {
         <p className="signup-text">
           Don't have an account?{" "}
           <span className="signup-link" onClick={() => navigate("/register")}>
-            Sign up
+            Register
           </span>
         </p>
       </div>
