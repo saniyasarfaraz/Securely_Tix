@@ -8,7 +8,7 @@ exports.register = async (req, res) => {
   try {
     // Check email domain
     if (!/@(securelytix|gmail)\.com$/.test(email)) {
-      return res.status(400).json({ msg: "Invalid email domain" });
+      return res.status(400).json({ msg: "Invalid email domain; email must be from securelytix.com or gmail.com" });
     }
 
     // Check password strength
