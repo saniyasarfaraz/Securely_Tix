@@ -10,7 +10,7 @@ import axios from "axios";
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("test@securelytix.com");
-  const [password, setPassword] = useState("12345678");
+  const [password, setPassword] = useState("test1234");
   const [remember, setRemember] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
