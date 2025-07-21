@@ -96,7 +96,7 @@ if (email) {
                 <p>📞 {selectedEmployee.phone}</p>
                 <p>📍 {selectedEmployee.location}</p>
                 <p>📅 Joined: {selectedEmployee.joined}</p>
-                <p>Experience: <strong>{selectedEmployee.experience} years</strong></p>
+                <p>💼 Experience: <strong>{selectedEmployee.experience} years</strong></p>
               </div>
             )}
           </div>
